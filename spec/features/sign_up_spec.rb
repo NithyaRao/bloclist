@@ -25,6 +25,8 @@ describe "user_signup" do
     it "gives an error if you sign up with an invaild email" do
       user.email = "fakeemail"
       sign_up(user.name, user.email, user.password)
+      expect(page).to have_content("Email is invalid")
+      expect(page).to have_content('Sign Up')
     end 
   end
   describe "if you attempt to sign up with a duplicate email?" do
