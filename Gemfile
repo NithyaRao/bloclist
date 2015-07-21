@@ -83,4 +83,6 @@ end
 
 group :test do
   gem 'factory_girl_rails', '~> 4.0'
+  #make testing emails go smoothly.
+  gem 'email_spec'
 end
