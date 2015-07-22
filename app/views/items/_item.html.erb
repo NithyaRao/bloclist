@@ -1,1 +1,2 @@
- <%= markdown_to_html item.name %>
+<%= link_to " ", user_item_path(item.user_id,item), method: :delete, class: 'glyphicon glyphicon-ok' %>
+<%= markdown_to_html item.name %>
