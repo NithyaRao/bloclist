@@ -29,4 +29,16 @@
  
  h1#header-centered {
     text-align: center;
+    color: red;
 }
+
+h4#list-centered {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+}
+
+.list {
+ display:table;
+  margin:0 auto;
+  }

@@ -11,4 +11,13 @@ module TestFactories
      user.save
      user
  end
+
+ def associated_item(options={})
+   item_options = {
+     name: 'Register for Class',
+     user: authenticated_user
+   }.merge(options)
+   Item.create(item_options)
+ end
+
 end

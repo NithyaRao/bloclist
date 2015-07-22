@@ -1,8 +1,8 @@
 require 'rails_helper'
 describe "user_signup" do 
+  let(:user) { FactoryGirl.build(:new_user) }
+   
   describe "Sign up a new user" do
-    let(:user) { FactoryGirl.build(:new_user) }
-
     it "Sign a new user up" do
       sign_up(user.name, user.email, user.password)
     end
@@ -21,17 +21,15 @@ describe "user_signup" do
     
   end
   describe "if you attempt to sign up with an invalid email?" do
-    let(:user) { FactoryGirl.build(:new_user) }
-    it "gives an error if you sign up with an invaild email" do
+     it "gives an error if you sign up with an invaild email" do
       user.email = "fakeemail"
       sign_up(user.name, user.email, user.password)
     end 
   end
   describe "if you attempt to sign up with a duplicate email?" do
-     let(:user) { FactoryGirl.create(:user) }
-     let(:new_user) { FactoryGirl.build(:new_user) }
-     it "gives an error if you sign up with a duplicate email" do
-       sign_up(new_user.name, user.email, new_user.password)
+     let(:other_user) { FactoryGirl.create(:user) }
+       it "gives an error if you sign up with a duplicate email" do
+       sign_up(user.name, other_user.email, user.password)
        expect(page).to have_content("Email has already been taken")
        expect(page).to have_content('Sign Up')
      end  

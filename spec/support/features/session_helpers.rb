@@ -15,5 +15,11 @@ module Features
       fill_in "Password", :with => user.password
       click_button "Sign in"  
     end
-  end
+
+    def create_item(item, user)
+      visit user_path(user.id)
+      fill_in "Description", :with => item.name
+      click_button "Save"
+    end
+end
 end
