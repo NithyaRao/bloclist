@@ -1,0 +1,25 @@
+ <%= content_tag :div, id: "item-#{item.id}" do %>
+<%= link_to "" , [item.user, item ], remote: true, method: :delete,  class: 'glyphicon glyphicon-ok completed-icon', id: "item-#{item.id}" %>  &nbsp;&nbsp; <%= item.name %>
+
+<%end%>
+<div id=<%="item-#{item.id}"%> class="item list-group-item">
+  <button type="button" class="btn btn-default btn-xs display-inline-right">
+    <span class="glyphicon glyphicon-ok completed-icon" aria-hidden="true"></span>
+    <%= link_to 'Item Completed', user_item_path(@user.id, item.id), method: :delete, remote: true %>
+  </button>
+  <h4 class='list-group-item-heading'><%= item.name %></h4> 
+</div>
+
+<%= content_tag :div, id: "item-#{item.id}" do %>
+<tr>
+<td> <h4 class='list-group-item-heading'><%= item.name %></h4> </td>
+<td> </td>
+<div class="btn-group btn-group-justified" role="group" aria-label="check to delete item from ToDo list">
+  <div class="btn-group" role="group">
+ <td> <button type="button" class="btn btn-default btn-xs">
+     <%= link_to " ", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok completed-icon'%>
+  </button> </td> 
+</div>
+</div>
+</tr>
+<%end %>

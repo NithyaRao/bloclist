@@ -1,2 +1,12 @@
-<%= link_to " ", user_item_path(item.user_id,item), method: :delete, class: 'glyphicon glyphicon-ok' %>
-<%= markdown_to_html item.name %>
+<tr id=<%="item-#{item.id}"%> class="highlight">
+<td> <h4><strong><%= item.name %></strong></h4> </td>
+<td> </td>
+<div class="btn-group btn-group-justified" role="group" aria-label="check to delete item from ToDo list">
+  <div class="btn-group" role="group">
+ <td> <button type="button" class="btn btn-default btn-xs">
+     <%= link_to " ", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok completed-icon'%>
+  </button> </td> 
+</div>
+</div>
+</tr>
+

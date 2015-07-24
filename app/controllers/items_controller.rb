@@ -15,14 +15,18 @@ class ItemsController < ApplicationController
    end
 
   def destroy
-     @item = Item.find(params[:id])
+      @item = Item.find(params[:id])
     # authorize @item
      if @item.destroy
-      flash[:notice] = "\"#{@item.name}\" was deleted successfully."
-       redirect_to @user
+      flash[:notice] = "\"#{@item.name}\" was deleted successfully."      
      else
        flash[:error] = "There was an error deleting the Item. Please try again."
-       render user_path[@user]
+     end
+
+     respond_to do |format|
+       format.html { redirect_to [ @item.user, @item ] }
+       format.json { head :no_content }
+       format.js { render :layout => false }
      end
   end
 
