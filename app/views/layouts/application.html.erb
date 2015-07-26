@@ -9,7 +9,7 @@
 <body>
   <div class="container">
    <div class="pull-right user-info">
-        <% if current_user %>
+          <% if current_user %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
            <% else %>
              <%= link_to "Sign In", new_user_session_path %> or

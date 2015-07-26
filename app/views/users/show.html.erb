@@ -11,13 +11,15 @@
           <th>Complete </th>
         </tr>
       </thead>
+      <div class='js-items'>
       <tbody>
-        <%= render @items %> 
-      <tbody>  
+          <%= render @items %> 
+      <tbody> 
+      </div> 
    </table>
    <br>
-   <div>
+   <div class='new-item'>
        <%= render :template => "/items/_form.html.erb", locals: { user: @user, item: @item } %>
- </div>
-</div>
+   </div>
+  </div>
 </div>

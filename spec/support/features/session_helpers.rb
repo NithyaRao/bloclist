@@ -11,9 +11,14 @@ module Features
 
     def sign_in(user)
       visit new_user_session_path
+      # puts "NEW USER SESSION"
+      # STDIN.getc
       fill_in "Email", :with => user.email
       fill_in "Password", :with => user.password
+      # puts "FILLED IN"
+      # debugger
       click_button "Sign in"  
+      # STDIN.getc
     end
 
     def create_items(item_name)
@@ -21,9 +26,23 @@ module Features
       click_button "Save"
     end
 
-    def delete_items(user_id, item_id)
-       click_link('', :href => "/users/#{item_id}/items/#{item_id}" )
-      # click_link( item_id)
+    def delete_items(item_id)
+       click_link("item-#{item_id}")
     end
+end
+
+module WaitHelpers
+   def wait(time, increment = 1, elapsed_time = 0, &block)
+    begin
+      yield
+      rescue Exception => e
+      if elapsed_time >= time
+         raise e
+      else
+         sleep increment
+         wait(time, increment, elapsed_time + increment, &block)
+      end
+  end
+end
 end
 end

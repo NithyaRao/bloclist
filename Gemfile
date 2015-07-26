@@ -53,7 +53,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   #acceptance test framework for web applications
-  gem 'capybara'
+  gem 'capybara', '~> 2.4.4'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'database_cleaner'
+  gem 'rspec-wait', '~> 0.0.7'
   
 end
 #  a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.
