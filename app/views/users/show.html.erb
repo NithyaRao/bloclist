@@ -10,16 +10,14 @@
           <th>Days Left </th>
           <th>Complete </th>
         </tr>
-      </thead>
-      <div class='js-items'>
-      <tbody>
-          <%= render @items %> 
+      </thead>  
+      <tbody class="js-items">       
+          <%= render partial: 'items/item', collection: @items %> 
       <tbody> 
-      </div> 
    </table>
+  </div> 
    <br>
    <div class='new-item'>
-       <%= render :template => "/items/_form.html.erb", locals: { user: @user, item: @item } %>
+       <%= render partial: 'items/form', locals: { user: @user, item: @item } %>
    </div>
-  </div>
 </div>
