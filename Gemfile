@@ -80,6 +80,8 @@ gem 'mini_magick'
 gem 'fog'
 # gem for Pagination
 gem 'will_paginate', '~> 3.0.6'
+# automating cron jobs
+gem 'whenever', :require => false
 
 group :development do
   gem 'binding_of_caller'
