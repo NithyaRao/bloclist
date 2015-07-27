@@ -58,6 +58,7 @@ group :development, :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'rspec-wait', '~> 0.0.7'
+  gem 'fantaskspec', '~> 0.9.9'
   
 end
 #  a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.

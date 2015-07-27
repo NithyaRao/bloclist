@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'email_spec'
+require 'fantaskspec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -53,6 +54,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+  config.infer_rake_task_specs_from_file_location!
   #config.include Rails.application.routes.url_helpers
   # Make Factory Girl's methods available
   config.include FactoryGirl::Syntax::Methods
@@ -101,5 +103,6 @@ end
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 
+Rails.application.load_tasks
 end
 
