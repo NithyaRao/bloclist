@@ -18,6 +18,8 @@
   </div> 
    <br>
    <div class='new-item'>
+       <% if policy(Item.new).create? %>
        <%= render partial: 'items/form', locals: { user: @user, item: @item } %>
+       <% end %>
    </div>
 </div>

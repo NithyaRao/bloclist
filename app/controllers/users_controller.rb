@@ -3,5 +3,6 @@ class UsersController < ApplicationController
      @user = User.find(params[:id])
      @items = @user.items
      @item = Item.new
+     authorize @user
   end
 end

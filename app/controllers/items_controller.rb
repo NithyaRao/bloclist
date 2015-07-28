@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     @new_item = Item.new
+    authorize @item
     if @item.save
        flash[:notice] = "Item was saved to the To-Do list"
     else
@@ -19,7 +20,7 @@ class ItemsController < ApplicationController
 
  def destroy
       @item = Item.find(params[:id])
-     # authorize @item
+      authorize @item
      if @item.destroy
       flash[:notice] = "\"#{@item.name}\" was deleted successfully."      
      else
