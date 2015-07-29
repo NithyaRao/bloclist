@@ -1,3 +1,3 @@
 every 1.day, :at => '12:00 am' do
-  rake "todo:delete_items" 
+  RAILS_ENV="development" rake "todo:delete_items" 
 end

@@ -8,7 +8,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'email_spec'
-require 'fantaskspec'
+
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -26,7 +26,7 @@ require 'fantaskspec'
 # require only the support files necessary.
 #
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-
+Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -54,7 +54,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-  config.infer_rake_task_specs_from_file_location!
+  #config.infer_rake_task_specs_from_file_location!
   #config.include Rails.application.routes.url_helpers
   # Make Factory Girl's methods available
   config.include FactoryGirl::Syntax::Methods
