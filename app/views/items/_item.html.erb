@@ -1,0 +1,15 @@
+<tr id=<%="item-#{item.id}"%> class="highlight">
+<td> <h4><strong><%= item.name %></strong></h4> </td>
+<td> <%= item.days_left %> </td>
+<div class="btn-group btn-group-justified" role="group" aria-label="check to delete item from ToDo list">
+  <div class="btn-group" role="group">
+ <td> <button type="button" class="btn btn-default btn-xs">
+     <% if policy(item).destroy? %>
+     <%= link_to " ", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok completed-icon', id: "item-#{item.id}"%>
+     <% end %>
+     </button> 
+ </td> 
+  </div>
+</div>
+</tr>
+

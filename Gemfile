@@ -53,7 +53,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   #acceptance test framework for web applications
-  gem 'capybara'
+  gem 'capybara', '~> 2.4.4'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'database_cleaner'
+  gem 'rspec-wait', '~> 0.0.7'
+  gem 'fantaskspec', '~> 0.9.9'
   
 end
 #  a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.
@@ -75,6 +80,8 @@ gem 'mini_magick'
 gem 'fog'
 # gem for Pagination
 gem 'will_paginate', '~> 3.0.6'
+# automating cron jobs
+gem 'whenever', :require => false
 
 group :development do
   gem 'binding_of_caller'

@@ -1,0 +1,6 @@
+<% if @item.valid? %>
+   $('.js-items').prepend("<%= j (render(@item)) %>");
+   $('.new-item').html("<%= j (render partial: 'items/form', locals: { user: @item.user, item: @new_item }) %>");
+ <% else %>
+   $('.new-item').html("<%= j (render partial: 'items/form', locals: { user: @item.user, item: @item }) %>");
+ <% end %>
